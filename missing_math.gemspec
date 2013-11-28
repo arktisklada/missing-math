@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version       = MissingMath::VERSION
   s.authors       = ['Clayton Liggitt']
   s.email         = 'mail@enorganik.com'
-  s.date          = '2010-04-28'
+  s.date          = '2013-11-28'
   s.description   = 'A library of missing math functions.'
   s.summary       = 'Missing Math!'
   s.homepage      = 'https://github.com/arktisklada/missing-math'
