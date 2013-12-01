@@ -4,4 +4,8 @@ class Float
     false
   end
 
+  def is_f?
+    true
+  end
+
 end

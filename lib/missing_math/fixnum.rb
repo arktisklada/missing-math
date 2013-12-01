@@ -4,4 +4,8 @@ class Fixnum
     super
   end
 
+  def is_f?
+    super
+  end
+
 end
