@@ -25,13 +25,9 @@ An `is_i?` method has been implemented on `Fixnum`, `Float`, and `Integer` class
 A similar `is_f?` method has been implemented with the same concept, and returns boolean true|false if the object is a float.
 
 
-### Integer Methods
+### Number Methods
 
-- `prime?` Returns boolean true|false if number is prime
-- `factorial` Returns a number's factorial n!
-- `factors(true)` Returns an array of a number's factors
-  - Takes one boolean param to include the number 1 in the output.  Default true, set to false to exclude
-- `to_a` Converts an integer to an array of integers
+- `to_a` Converts a number to an array of integers
   - Example: 12345.to_a => [1, 2, 3, 4, 5]
 - `length` Returns the character length of the number
   - Example: 12345.length => 5
@@ -39,19 +35,27 @@ A similar `is_f?` method has been implemented with the same concept, and returns
   - Example: 2345.prepend(1) => 12345
 - `append(n)` Returns the number with a number added to the end of the number
   - Example: 1234.append(5) => 12345
-- `shift` Returns the number with the first digit removed from the beginning of the number
+- `shift` Returns the number with the first character removed from the beginning of the number
   - Example: 12345.shift => 2345
-- `pop` Returns the number with the last digit removed from the end of the number
+- `pop` Returns the number with the last character removed from the end of the number
   - Example: 12345.pop => 1234
-- `substr(index)` Returns a digit subset/substring of the current with a 0-indexed integer or range
+- `substr(search)` Returns a digit subset/substring of the current with a 0-indexed integer or range
   - Example 1: 12345.substr(2) => 3
   - Example 2: 12345.substr(0..2) => 123
 - `rotate(true)` Returns the number with the first digit moved to the end
   - Example 1: 12345.rotate => 23451
   - Example 2: 12345.rotate(false) => 51234
-- `contains?(n)` Checks if the number contains a digit sequence or regex
+- `contains?(search)` Checks if the number contains a sequence or regex
   - Example 1: 12345.contains?(34) => true
   - Example 2: 12345.contains?(/34/) => true
+
+### Integer Methods
+
+- `prime?` Returns boolean true|false if integer is prime
+- `factorial` Returns an integer's factorial n!
+- `factors(true)` Returns an array of an integer's factors
+  - Takes one boolean param to include 1 in the output.  Default true, set to false to exclude
+- `prime_factors` Returns an array of the integer's prime factors
 
 
 ### Module Methods
@@ -65,7 +69,7 @@ A similar `is_f?` method has been implemented with the same concept, and returns
 
 ## Contributing
 
-Contributions welcome!  This is just something I've been putting together while doing code challenges, data operations, Project Euler, etc.
+Contributions welcome!  This is just something I've been putting together while doing data operations, code challenges, Project Euler problems, etc.
 
 - I'd like to explore different algorithms for efficiency
 - Debugging and exception handling

@@ -1,4 +1,6 @@
 class Fixnum
+  include MissingMath::Number
+
 
   def is_i?
     super

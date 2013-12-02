@@ -9,13 +9,12 @@ Gem::Specification.new do |s|
   s.version       = MissingMath::VERSION
   s.authors       = ['Clayton Liggitt']
   s.email         = 'mail@enorganik.com'
-  s.date          = '2013-11-28'
-  s.description   = 'A library of missing math functions.'
   s.summary       = 'Missing Math!'
+  s.description   = 'A library of missing math functions.'
   s.homepage      = 'https://github.com/arktisklada/missing-math'
   s.license       = 'MIT'
 
-  s.files         = Dir.glob('lib/**/*.rb') #['lib/missing_math.rb', 'lib/missing_math/integer.rb', 'lib/missing_math/float.rb', 'lib/missing_math/fixnum.rb']
-  s.require_paths = ['lib']
+  s.files         = Dir.glob('lib/**/*.rb') #`git ls-files`.split($/) #['lib/missing_math.rb', 'lib/missing_math/integer.rb', 'lib/missing_math/float.rb', 'lib/missing_math/fixnum.rb']
+  s.require_paths = ['lib'] #%w(lib)
 
 end
