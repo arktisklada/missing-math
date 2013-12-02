@@ -62,7 +62,8 @@ A similar `is_f?` method has been implemented with the same concept, and returns
 
 ### Module Methods
 
-- `esieve(n)` Generates a prime sieve with max value n
+- `esieve(n, force_new=false)` Generates a prime sieve with max value n
+  - Calling this method creates a global module variable @esieve.  To force it to generate a new @sieve, set to true
   - Example: MissingMath.esieve(1000) => [2, 3, 5, ...]
 
 

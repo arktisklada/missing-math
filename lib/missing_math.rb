@@ -159,7 +159,7 @@ module MissingMath
     def prime_factors
       ceil = (self / 2).floor
       primes = MissingMath.esieve(ceil)
-      factors = primes.collect { |i| i if self % i == 0 }
+      factors = primes.collect { |i| i if self % i == 0 && i <= ceil }
       return factors.compact.uniq
     end
   end
@@ -170,17 +170,22 @@ module MissingMath
 
   # Generates a prime sieve with max value n
   # @param integer n Max value of sieve
+  # @param boolean force_new Force new module variable generation.  Default saves module variable @esieve
   # Example: MissingMath.esieve(1000) => [2, 3, 5, ...]
-  def self.esieve(n)
-    a = (0..n).to_a
-    a[0] = nil
-    a[1] = nil
-    a.each do |i|
-      next unless i
-      break if i * i > n
-      (i * i).step(n, i) { |m| a[m] = nil}
+module MissingMath
+  def self.esieve(n, force_new=false)
+    if !@esieve
+      a = (0..n).to_a
+      a[0] = nil
+      a[1] = nil
+      a.each do |i|
+        next unless i
+        break if i * i > n
+        (i * i).step(n, i) { |m| a[m] = nil}
+      end
+      @esieve = a.compact
     end
-    return a.compact
+    return @esieve
   end
 
 end
