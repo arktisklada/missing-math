@@ -2,6 +2,8 @@
 
 This gem includes a variety of methods that I've used occasionally and felt they could be better served as object methods.
 
+---
+
 ## Usage
 
 Include the gem in an irb/console with
@@ -53,8 +55,8 @@ A similar `is_f?` method has been implemented with the same concept, and returns
 
 - `prime?` Returns boolean true|false if integer is prime
 - `factorial` Returns an integer's factorial n!
-- `factors(true)` Returns an array of an integer's factors
-  - Takes one boolean param to include 1 in the output.  Default true, set to false to exclude
+- `factors(false)` Returns an array of an integer's factors
+  - Takes one boolean param to include 1 in the output.  Default false, set to true to include
 - `prime_factors` Returns an array of the integer's prime factors
 
 

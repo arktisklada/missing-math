@@ -138,8 +138,8 @@ module MissingMath
     end
 
     # Returns an array of an integer's factors
-    # @param boolean include_one To exclude the number 1 from the output, set to false
-    def factors(include_one=true)
+    # @param boolean include_one Default is to exclude the number 1 from the output; to include set to false
+    def factors(include_one=false)
       throw "Not an Integer" if !self.is_i?
       last = self
       i = include_one ? 1 : 2
@@ -159,8 +159,8 @@ module MissingMath
     def prime_factors
       ceil = (self / 2).floor
       primes = MissingMath.esieve(ceil)
-      factors = primes.collect { |i| self % i == 0 }
-      return factors
+      factors = primes.collect { |i| i if self % i == 0 }
+      return factors.compact.uniq
     end
   end
 
