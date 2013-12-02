@@ -172,7 +172,6 @@ module MissingMath
   # @param integer n Max value of sieve
   # @param boolean force_new Force new module variable generation.  Default saves module variable @esieve
   # Example: MissingMath.esieve(1000) => [2, 3, 5, ...]
-module MissingMath
   def self.esieve(n, force_new=false)
     if !@esieve
       a = (0..n).to_a
