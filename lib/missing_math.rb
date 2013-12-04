@@ -1,4 +1,7 @@
 module MissingMath
+  # @esieve
+  # @fib
+
 
   # Methods that can apply to all number object types
   module Number
@@ -71,6 +74,7 @@ module MissingMath
     end
 
     # Returns the number reversed
+    # Example: 12345.reverse => 54321
     def reverse
       a = self.to_a
       str = a.reverse.join('')
@@ -78,6 +82,7 @@ module MissingMath
     end
 
     # Returns true|false if the number is a palindrome
+    # Example: 123454321.palindrome? => true
     def palindrome?
       return self == self.reverse
     end
@@ -198,6 +203,21 @@ module MissingMath
       @esieve = a.compact
     end
     return @esieve
+  end
+
+  # Generates an array holding an n-length fibonacci sequence
+  # @param integer n Length of sequence to generate
+  # @param boolean true_fib Use the true fibonacci sequence (0, 1, 1, 2...) or skip the first two values (1, 2, 3, 5...). Default true
+  # @param boolean force_new Force new module variable @fib generation.  Default uses module variable @fib if it hasn't been set
+  # Example: MissingMath.fibonacci(5) => [0, 1, 1, 2, 3]
+  def self.fibonacci(n, true_fib=true, force_new=false)
+    if !@fib || force_new
+      @fib = true_fib ? [0, 1] : [1, 2]
+      while @fib.length < n
+        @fib << @fib[-1] + @fib[-2]
+      end
+    end
+    return @fib
   end
 
 end

@@ -50,6 +50,10 @@ A similar `is_f?` method has been implemented with the same concept, and returns
 - `contains?(search)` Checks if the number contains a sequence or regex
   - Example 1: 12345.contains?(34) => true
   - Example 2: 12345.contains?(/34/) => true
+- `reverse` Reverses the number
+  - Example: 12345.reverse => 54321
+- `palindrome?` Checks if the number is a palindrome
+  - Example: 123454321.palindrome? => true
 
 ### Integer Methods
 
@@ -63,8 +67,12 @@ A similar `is_f?` method has been implemented with the same concept, and returns
 ### Module Methods
 
 - `esieve(n, force_new=false)` Generates a prime sieve with max value n
-  - Calling this method creates a global module variable @esieve.  To force it to generate a new @sieve, set to true
+  - Calling this method creates a global module variable @esieve.  To force it to generate a new @sieve, set `force_new` to true
   - Example: MissingMath.esieve(1000) => [2, 3, 5, ...]
+- `fibonacci(n, true_fib=true, force_new=false)` Generates an n-length fibonacci sequence
+  - Calling this method creates a global module variable @esieve.  To force it to generate a new @sieve, set `force_new` to true
+  - This method defaults to using the true fibonacci sequence (0, 1, 1, 2...).  To skip the first two values (1, 2, 3, 5...), set `true_fib` to false
+  - Example: MissingMath.fibonacci(5) => [0, 1, 1, 2, 3]
 
 
 
