@@ -70,6 +70,18 @@ module MissingMath
       number_out(str)
     end
 
+    # Returns the number reversed
+    def reverse
+      a = self.to_a
+      str = a.reverse.join('')
+      number_out(str)
+    end
+
+    # Returns true|false if the number is a palindrome
+    def palindrome?
+      return self == self.reverse
+    end
+
     # Checks if the number contains a digit sequence or regex
     # @param integer|regexp search
     # Example 1: 12345.contains?(34) => true
