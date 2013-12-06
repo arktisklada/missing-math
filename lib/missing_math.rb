@@ -112,6 +112,7 @@ module MissingMath
       end
     end
 
+
     private
 
     # Output a stringed version of a number as a float or integer (whichever it deserves)
@@ -180,6 +181,44 @@ module MissingMath
       factors = primes.collect { |i| i if self % i == 0 && i <= ceil }
       return factors.compact.uniq
     end
+
+
+    # Returns the triangle number
+    def triangle
+      return (self * (self + 1)) / 2
+    end
+
+    # Returns the triangle number
+    def pentagon
+      return (self * ((3 * self) - 1)) / 2
+    end
+
+    # Returns the triangle number
+    def hexagon
+      return self * ((2 * self) - 1)
+    end
+
+
+    # Checks if the number is triangular.  If true, returns the number, otherwise false
+    def triangular?
+      n = (Math.sqrt((8 * self) + 1) - 1) / 2
+      if n.floor == n.ceil
+        return n
+      else
+        return false
+      end
+    end
+
+    # Checks if the number is pentagonal.  If true, returns the number, otherwise false
+    def pentagonal?
+      n = (Math.sqrt((24 * self) + 1) + 1) / 6
+      if n.floor == n.ceil
+        return n
+      else
+        return false
+      end
+    end
+
   end
 
 
