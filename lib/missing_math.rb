@@ -16,6 +16,19 @@ module MissingMath
       end
     end
 
+    # Converts an number to an array of numbers.  If a decimal number, the decimal will be a position in the array
+    # Example: 12345.to_a => [1, 2, 3, 4, 5]
+    def to_a
+      self.to_s.split('').map do |n|
+        matches = n.scan(/[0-9]/).length
+        if matches > 0
+          n.to_i
+        else
+          n
+        end
+      end
+    end
+
     # Returns the number with a number added to the beginning of the number
     # @param integer n The number to prepend
     # Example: 2345.prepend(1) => 12345
@@ -58,6 +71,18 @@ module MissingMath
       number_out(str)
     end
 
+    # Checks if the number contains a digit sequence or regex
+    # @param integer|regexp search
+    # Example 1: 12345.contains?(34) => true
+    # Example 2: 12345.contains?(/34/) => true
+    def contains?(search)
+      if search.is_a? Regexp
+        return self.to_s.scan(search).length > 0 ? true : false
+      else
+        return self.to_s.index(search.to_s) ? true : false
+      end
+    end
+
     # Returns the number with the first digit moved to the end
     # @param boolean right Defaults to rotating right.  Set to false to rotate left
     # Example 1: 12345.rotate => 23451
@@ -85,31 +110,6 @@ module MissingMath
     # Example: 123454321.palindrome? => true
     def palindrome?
       return self == self.reverse
-    end
-
-    # Checks if the number contains a digit sequence or regex
-    # @param integer|regexp search
-    # Example 1: 12345.contains?(34) => true
-    # Example 2: 12345.contains?(/34/) => true
-    def contains?(search)
-      if search.is_a? Regexp
-        return self.to_s.scan(search).length > 0 ? true : false
-      else
-        return self.to_s.index(search.to_s) ? true : false
-      end
-    end
-
-    # Converts an number to an array of numbers.  If a decimal number, the decimal will be a position in the array
-    # Example: 12345.to_a => [1, 2, 3, 4, 5]
-    def to_a
-      self.to_s.split('').map do |n|
-        matches = n.scan(/[0-9]/).length
-        if matches > 0
-          n.to_i
-        else
-          n
-        end
-      end
     end
 
 
@@ -152,7 +152,11 @@ module MissingMath
     # Calculates an integer's factorial
     def factorial
       throw "Not an Integer" if !self.is_i?
-      self.downto(1).reduce(:*)
+      if self == 0
+        1
+      else
+        self.downto(1).reduce(:*)
+      end
     end
 
     # Returns an array of an integer's factors
@@ -188,12 +192,12 @@ module MissingMath
       return (self * (self + 1)) / 2
     end
 
-    # Returns the triangle number
+    # Returns the pentagonal number
     def pentagon
       return (self * ((3 * self) - 1)) / 2
     end
 
-    # Returns the triangle number
+    # Returns the hexagonal number
     def hexagon
       return self * ((2 * self) - 1)
     end
@@ -266,3 +270,4 @@ end
 require 'missing_math/integer'
 require 'missing_math/float'
 require 'missing_math/fixnum'
+require 'missing_math/array'

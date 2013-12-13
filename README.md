@@ -22,17 +22,21 @@ gem 'missing-math'
 
 ## General Methods
 
-An `is_i?` method has been implemented on `Fixnum`, `Float`, and `Integer` classes to return a boolean true|false if the object is an integer.  This method is used by the `MissingMath` module to ensure proper data types before calcuations.  
+### Fixnum, Float, and Integer classes
 
-A similar `is_f?` method has been implemented with the same concept, and returns boolean true|false if the object is a float.
+- An `is_i?` method has been implemented on `Fixnum`, `Float`, and `Integer` classes to return a boolean true|false if the object is an integer.  This method is used by the `MissingMath` module to ensure proper data types before calcuations.  
+- A similar `is_f?` method has been implemented with the same concept, and returns boolean true|false if the object is a float.
 
+### Array class
+
+- `to_i` has been implemented on the `Array` class to join an array of numbers and return an integer
 
 ### Number Methods
 
-- `to_a` Converts a number to an array of integers
-  - Example: 12345.to_a => [1, 2, 3, 4, 5]
 - `length` Returns the character length of the number
   - Example: 12345.length => 5
+- `to_a` Converts a number to an array of integers
+  - Example: 12345.to_a => [1, 2, 3, 4, 5]
 - `prepend(n)` Returns the number with a number added to the beginning of the number
   - Example: 2345.prepend(1) => 12345
 - `append(n)` Returns the number with a number added to the end of the number
@@ -44,12 +48,12 @@ A similar `is_f?` method has been implemented with the same concept, and returns
 - `substr(search)` Returns a digit subset/substring of the current with a 0-indexed integer or range
   - Example 1: 12345.substr(2) => 3
   - Example 2: 12345.substr(0..2) => 123
-- `rotate(true)` Returns the number with the first digit moved to the end
-  - Example 1: 12345.rotate => 23451
-  - Example 2: 12345.rotate(false) => 51234
 - `contains?(search)` Checks if the number contains a sequence or regex
   - Example 1: 12345.contains?(34) => true
   - Example 2: 12345.contains?(/34/) => true
+- `rotate(true)` Returns the number with the first digit moved to the end
+  - Example 1: 12345.rotate => 23451
+  - Example 2: 12345.rotate(false) => 51234
 - `reverse` Reverses the number
   - Example: 12345.reverse => 54321
 - `palindrome?` Checks if the number is a palindrome
@@ -62,7 +66,11 @@ A similar `is_f?` method has been implemented with the same concept, and returns
 - `factors(false)` Returns an array of an integer's factors
   - Takes one boolean param to include 1 in the output.  Default false, set to true to include
 - `prime_factors` Returns an array of the integer's prime factors
-
+- `triangle` Calculates the triangle number
+- `pentagon` Calculates the pentagonal number
+- `hexagon` Calculates the hexagonal number
+- `triangular?` Checks if the number is triangular.  If true, returns the number, otherwise false.
+- `pentagonal?` Checks if the number is pentagonal.  If true, returns the number, otherwise false.
 
 ### Module Methods
 
