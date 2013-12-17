@@ -1,6 +1,7 @@
 class Integer
   include MissingMath::Number
   include MissingMath::Integer
+  include MissingMath::Nonspecific
 
 
   def is_i?
