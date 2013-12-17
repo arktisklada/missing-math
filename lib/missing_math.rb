@@ -98,6 +98,14 @@ module MissingMath
       number_out(str)
     end
 
+    # Returns the number reversed
+    # Example: 12345.reverse => 54321
+    def reverse
+      a = self.to_a
+      str = a.reverse.join('')
+      number_out(str)
+    end
+
 
     private
 
@@ -214,20 +222,11 @@ module MissingMath
 
   module Nonspecific
 
-    # Returns the number reversed
-    # Example: 12345.reverse => 54321
-    def reverse
-      a = self.to_a
-      str = a.reverse.join('')
-      number_out(str)
-    end
-
     # Returns true|false if the number is a palindrome
     # Example: 123454321.palindrome? => true
     def palindrome?
       return self == self.reverse
     end
-
 
   end
 
